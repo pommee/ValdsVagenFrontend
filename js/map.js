@@ -36,6 +36,7 @@ function initializeMap() {
     const mapOptions = {
         center: [62.38583179, 16.321998712],
         zoom: 5,
+        zoomControl: false,
     };
 
     map = new L.map('map', mapOptions);
@@ -118,11 +119,15 @@ function updateCrimeTable() {
     filteredCrimeData.forEach(function (crime) {
         const row = document.createElement("tr");
         row.innerHTML = `
-      <td>${crime.label}</td>
-      <td>${crime.description}</td>
-      <td>${crime.timeIncident}</td>
-      <td><a href="${crime.link}" target="_blank">Läs</a></td>
-    `;
+          <td>${crime.label}</td>
+          <td>${crime.description}</td>
+          <td>${crime.timeIncident}</td>
+        `;
+
+        row.addEventListener("click", function () {
+            window.open(crime.link, "_blank");
+        });
+
         tableBody.appendChild(row);
     });
 }
@@ -131,13 +136,10 @@ function graph(selectedLabel) {
 
     let filteredData;
     if (selectedLabel != "Allt") {
-        console.log("Sorting...");
-        console.log(crimeData[0].label === selectedLabel);
         filteredData = crimeData.filter(item => item.label === selectedLabel);
     } else {
         filteredData = crimeData;
     }
-    console.log(selectedLabel, filteredData);
 
     filteredData.sort((a, b) => new Date(a.timeIncident) - new Date(b.timeIncident));
 
@@ -183,9 +185,19 @@ function setupEventListeners() {
     map.on('moveend', updateCrimeTable);
 
     const previewTiles = document.querySelectorAll('.preview-tile');
+
     previewTiles.forEach(function (tile) {
         tile.addEventListener('click', function () {
             const index = parseInt(tile.getAttribute('data-index'));
+
+            // Remove the "active" class from all tiles
+            previewTiles.forEach(function (otherTile) {
+                otherTile.classList.remove('active');
+            });
+
+            // Add the "active" class to the clicked tile
+            tile.classList.add('active');
+
             setTileLayer(index);
         });
     });

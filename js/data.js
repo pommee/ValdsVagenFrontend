@@ -1,6 +1,6 @@
 async function fetchCrimes() {
     try {
-        const response = await fetch('http://localhost:3020/', {
+        const response = await fetch('https://valdsvagen-production.up.railway.app/api', {
             headers: {
                 'Accept': 'application/json'
             }
