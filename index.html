@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Våldsvågen</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="./css/styling.css" />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="./js/map.js"></script>
+    <script src="./js/data.js"></script>
+</head>
+
+<body>
+    <div id="map-and-table-container">
+        <div id="map">
+            <div id="preview-container">
+                <div class="preview-tile" data-index="0">
+                    <img src="" alt="Light" />
+                </div>
+                <div class="preview-tile" data-index="1">
+                    <img src="" alt="Light" />
+                </div>
+                <div class="preview-tile" data-index="2">
+                    <img src="" alt="Dark" />
+                </div>
+            </div>
+        </div>
+        <div id="crime-table">
+            <table id="crime-data-table">
+                <thead>
+                    <tr>
+                        <th>Titel</th>
+                        <th>Beskrivning</th>
+                        <th>Tid</th>
+                        <th>Länk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div>
+        <label for="sortDropdown">Sortera:</label>
+        <select id="sortDropdown">
+            <option value="Allt">Allt</option>
+            <option value="Mord/dråp">Mord/dråp</option>
+            <option value="Detonation">Detonation</option>
+            <option value="Skottlossning">Skottlossning</option>
+        </select>
+    </div>
+    <div id="crime-scatter-plot"></div>
+</body>
+
+</html>
