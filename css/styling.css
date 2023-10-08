@@ -1,122 +1,157 @@
 * {
-    padding: 0;
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #top-bar {
-    position: relative;
-    left: 2.5%;
-    width: 94vw;
-    border-radius: 0 0 10px 10px;
-    height: 8vh;
-    background-color: white;
-    filter: drop-shadow(0px 6px 6px #aaaaaa);
-    margin-bottom: 40px;
+  position: relative;
+  left: 2.5%;
+  width: 94vw;
+  border-radius: 0 0 10px 10px;
+  height: 8vh;
+  background-color: white;
+  filter: drop-shadow(0px 6px 6px #aaaaaa);
+  margin-bottom: 40px;
 }
 
 #title {
-    margin-left: 20px;
-    font-size: 46px;
-    position: absolute;
-    top: 20%;
+  margin-left: 20px;
+  font-size: 46px;
+  position: absolute;
+  top: 20%;
 }
 
 #map-and-table-container {
-    filter: drop-shadow(0px 6px 6px #aaaaaa);
-    position: relative;
-    left: 2.5%;
-    width: 94vw;
-    justify-content: center;
-    display: flex;
+  margin-bottom: 40px;
+  filter: drop-shadow(0px 6px 6px #aaaaaa);
+  position: relative;
+  left: 2.5%;
+  width: 94vw;
+  justify-content: center;
+  display: flex;
 }
 
 #map {
-    border-radius: 20px 0 0 20px;
-    position: relative;
-    width: 40vw;
-    height: 70vh;
+  border-radius: 20px 0 0 20px;
+  position: relative;
+  width: 46vw;
+  height: 70vh;
 }
 
 #crime-table {
-    border-radius: 0 20px 20px 0;
-    background-color: white;
-    width: 40vw;
-    height: 70vh;
-    overflow-y: auto;
+  border-radius: 0 20px 20px 0;
+  background-color: white;
+  width: 46vw;
+  height: 70vh;
+  overflow-y: auto;
 }
 
 #preview-container {
-    height: 50px;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    z-index: 1000;
+  height: 50px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
 }
 
 .preview-tile {
-    background: gray;
-    cursor: pointer;
-    width: 5vw;
-    height: 100%;
-    display: inline-block;
-    margin-right: 5px;
+  background: gray;
+  cursor: pointer;
+  width: 5vw;
+  height: 100%;
+  display: inline-block;
+  margin-right: 5px;
 }
 
 .preview-tile.active {
-    border: 2px solid transparent;
-    background: cornflowerblue;
+  border: 2px solid transparent;
+  background: cornflowerblue;
 }
 
 .preview-tile img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .preview-tile:hover {
-    border: 2px solid transparent;
+  border: 2px solid transparent;
 }
 
 #crime-data-table th {
-    background-color: white;
-    color: black;
-    padding: 10px;
-    text-align: center;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  text-align: center;
 }
 
 #crime-data-table td {
-    padding: 8px;
+  padding: 8px;
 }
 
 #crime-data-table tbody tr:nth-child(even) {
-    background-color: #fafafa;
+  background-color: #fafafa;
 }
 
 #crime-data-table tbody tr:hover {
-    background-color: #ddd;
-    cursor: pointer;
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+#percentage-and-scale-bar {
+  text-align: center;
+  border-radius: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  filter: drop-shadow(0px 6px 6px #aaaaaa);
+  background-color: white;
+  position: relative;
+  width: 50%;
+  left: 2.5%;
+  justify-content: space-evenly;
+  display: flex;
+}
+
+.percentage-and-scale-bar-title {
+  font-size: 0.8svi;
+  color: gray;
+}
+
+.percentage-and-scale-bar-value {
+  font-weight: bold;
+  font-size: 1.4svi;
+  color: black;
+}
+
+.percentage-and-scale-bar-difference {
+  font-size: 1svi;
+}
+
+.seperator {
+  border-left: 2px solid rgb(231, 231, 231);
+  border-radius: 10px;
 }
 
 #crime-scatter-plot {
-    width: 50vw;
+  width: 50vw;
 }
 
 ::-webkit-scrollbar {
-    width: 20px;
+  width: 20px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    height: 50px;
-    background-color: #d6dee1;
-    border-radius: 10px;
-    border: 6px solid transparent;
-    background-clip: content-box;
+  height: 50px;
+  background-color: #d6dee1;
+  border-radius: 10px;
+  border: 6px solid transparent;
+  background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #a8bbbf;
+  background-color: #a8bbbf;
 }
