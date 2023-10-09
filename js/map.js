@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     updatePercentageAndScaleBar();
     updateCrimeTableAmount();
     generateCrimeTimeline(crimeData, "all");
+    questionsAndAnswers();
   } catch (error) {
     console.error("Error fetching or processing crime data:", error);
   }

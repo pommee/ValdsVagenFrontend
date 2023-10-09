@@ -1,0 +1,26 @@
+[
+  {
+    "question": "Hur ofta uppdateras hemsidan?",
+    "answer": "Varje timme uppdateras hemsidan. Varpå data hämtas direkt från polisen."
+  },
+  {
+    "question": "Hur trovärdig är all information som visas?",
+    "answer": "Trovärdigheten ligger hos polisen då det är de som distribuerar det.\n våldsvågen.se har endast som funktion att presentera.\n\n Statistiken blir var dag mer pricksäker då det konstakt rapporteras om vad som händer i samhället.\n Det finns fall ända tillbaka till 2020, men dessa är få och inte lika trovärdiga som när sidan bildades (2023)."
+  },
+  {
+    "question": "Vad är syftet med hemsidan?",
+    "answer": "Det är lätt att läsa nyheterna varje dag och bilda sig en åsikt.\n Men att faktiskt få all information presenterat framför sig bildar en annan verklighetsbild.\n\n I min mening handlar det om att kunna se faktisk statistik som idag är väldigt reella."
+  },
+  {
+    "question": "Vad hoppas detta att uppnå?",
+    "answer": "Att ge ett verktyg som detta till den 'normala' personen kan ge ett uppdaterat perspektiv på vad som faktiskt händer i landet.\n Det började som ett hobby-projekt, men utvecklades sedan till en idé om att sprida uppmärksamhet.\n\n Social media är en väldigt stor bidragande faktor idag och påverkar lätt vad man tycker och tänker; även om man inte själv inser det."
+  },
+  {
+    "question": "Jag upplever ett fel på sidan, vem ska jag kontakta?",
+    "answer": "Du kan skicka ett email till <p style=\"color: cornflowerblue;\">burnersig@gmail.com</p>\n\n Det kan ta ett tag innan jag korrigerar felet då är ensam utvecklare på denna hemsidan."
+  },
+  {
+    "question": "Detta borde visas på hemsidan...",
+    "answer": "Önskar du ökad funktionalitet så kan du skicka ett email till addressen nämnd i frågan ovanför."
+  }
+]
