@@ -10,7 +10,6 @@ function filterCrimeDataByYear(data, selectedYear) {
 }
 
 function generateCrimeTimeline(data, selectedYear) {
-  console.log(selectedYear);
   if (selectedYear !== "all") {
     data = filteredData = filterCrimeDataByYear(data, selectedYear);
   }
