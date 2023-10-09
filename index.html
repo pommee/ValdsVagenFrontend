@@ -10,10 +10,6 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css"
-    />
-    <link
-      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css"
     />
     <link rel="stylesheet" href="./css/styling.css" />
@@ -89,40 +85,38 @@
     <div id="percentage-and-scale-bar">
       <div id="crime-percentage">
         <div class="percentage-and-scale-bar-title">Brott detta år</div>
-        <div class="percentage-and-scale-bar-value">857</div>
-        <div class="percentage-and-scale-bar-difference">+29.4% sedan 2019</div>
+        <div class="percentage-and-scale-bar-value"></div>
+        <div class="percentage-and-scale-bar-difference"></div>
       </div>
       <div class="seperator"></div>
       <div id="most-impacted-city">
         <div class="percentage-and-scale-bar-title">Mest påverkade plats</div>
-        <div class="percentage-and-scale-bar-value">Stockholm</div>
-        <div class="percentage-and-scale-bar-difference">
-          +412 fall sedan 2019
-        </div>
+        <div class="percentage-and-scale-bar-value"></div>
+        <div class="percentage-and-scale-bar-difference"></div>
       </div>
       <div class="seperator"></div>
       <div id="most-common-crime">
         <div class="percentage-and-scale-bar-title">Vanligaste brottet</div>
-        <div class="percentage-and-scale-bar-value">Skottlossning</div>
-        <div class="percentage-and-scale-bar-difference">
-          +201 jämnfört med 2019
-        </div>
+        <div class="percentage-and-scale-bar-value"></div>
+        <div class="percentage-and-scale-bar-difference"></div>
       </div>
     </div>
-    <div>
-      <label for="sortDropdown">Sortera:</label>
-      <select id="sortDropdown">
-        <option value="Allt">Allt</option>
-        <option value="Mord/dråp">Mord/dråp</option>
-        <option value="Detonation">Detonation</option>
-        <option value="Skottlossning">Skottlossning</option>
-      </select>
+    <div id="crime-scatter-plot-and-timeline-tables">
+      <div id="crime-table-occourance">
+        <table id="crime-data-table-details">
+          <thead>
+            <tr>
+              <th>Brott</th>
+              <th>Antal</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div id="crime-scatter-plot">
+        <div></div>
+      </div>
+      <div id="crime-timeline-table"></div>
     </div>
-    <div id="crime-scatter-plot"></div>
-    <label for="year-select">Select Year:</label>
-    <select id="year-select">
-      <option value="all">Allt</option>
-    </select>
-    <div id="crime-timeline-table"></div>
   </body>
 </html>

@@ -33,12 +33,12 @@ function generateCrimeTimeline(data, selectedYear) {
   };
 
   const layout = {
-    title: "Crime Count by Hour of the Day",
+    title: "Vanligaste tiden för brott",
     xaxis: {
-      title: "Hour of Day",
+      title: "Klockslag",
     },
     yaxis: {
-      title: "Crime Count",
+      title: "Antal",
     },
   };
 
@@ -50,21 +50,4 @@ function handleYearSelectionChange() {
   const selectedYear = yearSelect.value;
 
   generateCrimeTimeline(crimeData, selectedYear);
-}
-
-function populateYearOptions() {
-  const yearSelect = document.getElementById("year-select");
-  const years = [
-    ...new Set(
-      crimeData.map((incident) => new Date(incident.timeIncident).getFullYear())
-    ),
-  ];
-
-  yearSelect.innerHTML = "";
-  yearSelect.appendChild(new Option("All Years", "all"));
-  years.forEach((year) => {
-    yearSelect.appendChild(new Option(year.toString(), year.toString()));
-  });
-
-  yearSelect.addEventListener("change", handleYearSelectionChange);
 }

@@ -15,9 +15,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     initializeMap();
     updateCrimeTable();
     setupEventListeners();
-    graph("Allt");
+    graph();
     updatePercentageAndScaleBar();
-    populateYearOptions();
+    updateCrimeTableAmount();
     generateCrimeTimeline(crimeData, "all");
   } catch (error) {
     console.error("Error fetching or processing crime data:", error);
@@ -44,7 +44,7 @@ function initializeMap() {
   setTileLayer(currentTileLayerIndex);
 
   markersCluster = L.markerClusterGroup();
-  addHeatmapData();
+  addLabelsData();
 
   const targetZoom = 5;
   const targetCoords = [62.38583179, 16.321998712];
@@ -52,11 +52,11 @@ function initializeMap() {
   map.flyTo(targetCoords, targetZoom, { animate: true });
 }
 
-function addHeatmapData() {
+function addLabelsData() {
   markersCluster.clearLayers();
 
   crimeData.forEach(function (crime) {
-    const marker = L.marker([crime.lat, crime.lon]);
+    const marker = L.marker([crime.x, crime.y]);
     marker.bindPopup(`<b>${crime.label}</b><br>${crime.description}`);
     markersCluster.addLayer(marker);
   });
@@ -138,13 +138,53 @@ function updateCrimeTable() {
   });
 }
 
-function graph(selectedLabel) {
-  let filteredData;
-  if (selectedLabel != "Allt") {
-    filteredData = crimeData.filter((item) => item.label === selectedLabel);
-  } else {
-    filteredData = crimeData;
+function updatePreviewTiles() {
+  const previewTiles = document.querySelectorAll(".preview-tile img");
+  const mapCenter = map.getCenter();
+  const mapZoom = map.getZoom();
+
+  const centerPoint = map.project(mapCenter, mapZoom);
+  const tileX = centerPoint.x / 256;
+  const tileY = centerPoint.y / 256;
+
+  previewTiles.forEach(function (img, index) {
+    img.src = tileLayers[index]
+      .replace("{s}", "a")
+      .replace("{z}", mapZoom)
+      .replace("{x}", tileX)
+      .replace("{y}", tileY);
+  });
+}
+
+function updateCrimeTableAmount() {
+  const currentYear = new Date().getFullYear();
+  const tableBody = document.querySelector("#crime-data-table-details tbody");
+  tableBody.innerHTML = "";
+  let amountOfCrimeTypePerYear =
+    countIncidentTypePerYear(crimeData)[currentYear];
+
+  const dataArray = Object.entries(amountOfCrimeTypePerYear);
+
+  dataArray.sort((a, b) => b[1] - a[1]);
+
+  const sortedData = Object.fromEntries(dataArray);
+
+  for (const key in sortedData) {
+    if (sortedData.hasOwnProperty(key)) {
+      const value = sortedData[key];
+      const row = document.createElement("tr");
+      row.innerHTML = `
+            <td>${key}</td>
+            <td>${value}</td>
+          `;
+
+      tableBody.appendChild(row);
+    }
   }
+}
+
+function graph() {
+  filteredData = crimeData;
 
   filteredData.sort(
     (a, b) => new Date(b.timeIncident) - new Date(a.timeIncident)
@@ -182,6 +222,7 @@ function graph(selectedLabel) {
     title: "Brott per månad",
     xaxis: { title: "Datum" },
     yaxis: { title: "Antal" },
+    showLegend: false,
   };
 
   const plotData = [trace];
@@ -205,6 +246,38 @@ function updatePercentageAndScaleBar() {
   crimesThisYear.textContent = amountOfCrimesThisYear;
   crimesThisYearDifference.textContent =
     amountOfCrimesThisYearCompared + " sedan 2022";
+
+  var mostImactedCity = document.querySelector(
+    "#most-impacted-city .percentage-and-scale-bar-value"
+  );
+  var mostImactedCityThisYearDifference = document.querySelector(
+    "#most-impacted-city .percentage-and-scale-bar-difference"
+  );
+
+  const placeCounts = {};
+
+  crimeData.forEach((entry) => {
+    const place = entry.place;
+    if (placeCounts[place]) {
+      placeCounts[place]++;
+    } else {
+      placeCounts[place] = 1;
+    }
+  });
+
+  let mostCommonPlace = null;
+  let mostCommonPlaceCount = 0;
+
+  for (const place in placeCounts) {
+    if (placeCounts[place] > mostCommonPlaceCount) {
+      mostCommonPlace = place;
+      mostCommonPlaceCount = placeCounts[place];
+    }
+  }
+
+  mostImactedCity.textContent = mostCommonPlace;
+  mostImactedCityThisYearDifference.textContent =
+    "+" + mostCommonPlaceCount + " fall sedan 2022";
 
   var mostCommonCrime = document.querySelector(
     "#most-common-crime .percentage-and-scale-bar-value"
@@ -246,6 +319,18 @@ function updatePercentageAndScaleBar() {
       mostCommonPreviousYearCount,
       mostCommonCurrentYearCount
     ) + increaseDecrease;
+}
+
+function getUniqueLabels(objects) {
+  const labels = new Set();
+  objects.forEach((obj) => {
+    if (obj.label) {
+      labels.add(obj.label);
+    }
+  });
+  return Array.from(labels).sort((a, b) =>
+    a.localeCompare(b, undefined, { sensitivity: "base" })
+  );
 }
 
 function calculatePercentageChange(oldValue, newValue) {
@@ -312,11 +397,5 @@ function setupEventListeners() {
 
       setTileLayer(index);
     });
-  });
-
-  const sortDropdown = document.querySelector("#sortDropdown");
-  sortDropdown.addEventListener("change", function () {
-    const selectedLabel = this.value;
-    graph(selectedLabel);
   });
 }
