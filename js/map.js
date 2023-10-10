@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     updateCrimeTableAmount();
     generateCrimeTimeline(crimeData, "all");
     questionsAndAnswers();
+    runAnimations();
   } catch (error) {
     console.error("Error fetching or processing crime data:", error);
   }
@@ -232,6 +233,8 @@ function graph() {
 }
 
 function updatePercentageAndScaleBar() {
+  const currentYear = new Date().getFullYear();
+
   var crimesThisYear = document.querySelector(
     "#crime-percentage .percentage-and-scale-bar-value"
   );
@@ -245,8 +248,7 @@ function updatePercentageAndScaleBar() {
     countIncidentsPerYear(crimeData)["2023"]
   );
   crimesThisYear.textContent = amountOfCrimesThisYear;
-  crimesThisYearDifference.textContent =
-    amountOfCrimesThisYearCompared + " sedan 2022";
+  crimesThisYearDifference.textContent = "";
 
   var mostImactedCity = document.querySelector(
     "#most-impacted-city .percentage-and-scale-bar-value"
@@ -278,7 +280,7 @@ function updatePercentageAndScaleBar() {
 
   mostImactedCity.textContent = mostCommonPlace;
   mostImactedCityThisYearDifference.textContent =
-    "+" + mostCommonPlaceCount + " fall sedan 2022";
+    mostCommonPlaceCount + " fall " + currentYear;
 
   var mostCommonCrime = document.querySelector(
     "#most-common-crime .percentage-and-scale-bar-value"
@@ -288,7 +290,6 @@ function updatePercentageAndScaleBar() {
   );
 
   let incidentTypesPerYear = countIncidentTypePerYear(crimeData);
-  const currentYear = new Date().getFullYear();
 
   const currentYearLabels = incidentTypesPerYear[currentYear];
   const previousYearLabels = incidentTypesPerYear[currentYear - 1];
@@ -305,21 +306,8 @@ function updatePercentageAndScaleBar() {
   }
 
   mostCommonCrime.textContent = mostCommonCurrentYearLabel;
-  let increaseDecrease =
-    mostCommonCurrentYearCount > mostCommonPreviousYearCount
-      ? mostCommonCurrentYearCount -
-        mostCommonPreviousYearCount +
-        " nya fall sedan " +
-        `${currentYear - 1}`
-      : mostCommonPreviousYearCount -
-        mostCommonCurrentYearCount +
-        " färre fall sedan " +
-        `${currentYear - 1}`;
   mostCommonCrimeCompared.textContent =
-    calculatePercentageChange(
-      mostCommonPreviousYearCount,
-      mostCommonCurrentYearCount
-    ) + increaseDecrease;
+    mostCommonCurrentYearCount + " fall " + currentYear;
 }
 
 function getUniqueLabels(objects) {
