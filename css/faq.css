@@ -14,3 +14,12 @@
   margin-top: 10px;
   font-size: 18px;
 }
+
+#close-faq-window {
+  height: fit-content;
+  width: fit-content;
+  cursor: pointer;
+  margin-top: 10px;
+  position: relative;
+  margin-left: 10px;
+}
