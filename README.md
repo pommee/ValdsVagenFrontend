@@ -2,4 +2,4 @@
 
 ![awd](./preview.png)
 
-This is a website ([hosted here](https://valdsvagenfrontend-production.up.railway.app/)) that collects data from the swedish police and presents some statistics.
+This is a website ([hosted here](https://pommee.github.io/ValdsVagenFrontend/)) that collects data from the swedish police and presents some statistics.
