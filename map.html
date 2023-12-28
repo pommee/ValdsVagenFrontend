@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Våldsvågen</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="./css/styling.css" />
+    <link rel="stylesheet" href="./css/faq.css" />
+    <script src="https://kit.fontawesome.com/bfa4816429.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="./js/functions.js"></script>
+    <script src="./js/map.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/crimeTimeline.js"></script>
+</head>
+
+<body>
+    <div id="side-bar-menu">
+        <div class="sidebar-item">
+            <a href="#" style="margin-top: 20px; margin-bottom: 40px; font-size: 24px; color"><i
+                    class="fa-solid fa-chart-simple"></i> Våldsvågen</a>
+        </div>
+        <div class="sidebar-item sidebar-item-active">
+            <a href="map"><i class="fa-solid fa-map"></i> Karta</a>
+        </div>
+        <div class="sidebar-item">
+            <a href="#">Link 2</a>
+        </div>
+    </div>
+    <div id="main-content">
+        <div id="map-and-table-container">
+            <div id="map">
+                <div id="preview-container">
+                    <div class="preview-tile active" data-index="0">
+                        <img alt="Light" />
+                    </div>
+                    <div class="preview-tile" data-index="1">
+                        <img alt="Light" />
+                    </div>
+                    <div class="preview-tile" data-index="2">
+                        <img alt="Dark" />
+                    </div>
+                </div>
+            </div>
+            <div id="crime-table">
+                <table id="crime-data-table">
+                    <thead>
+                        <tr>
+                            <th>Titel</th>
+                            <th>Beskrivning</th>
+                            <th>Tid</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <div id="faq-window" class="invinsible">
+            <div id="close-faq-window">
+                <i class="fa-solid fa-circle-xmark fa-xl" id="close-faq-window-btn"></i>
+            </div>
+        </div>
+</body>
+
+</html>

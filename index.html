@@ -1,139 +1,110 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Våldsvågen</title>
-    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css"
-    />
-    <link rel="stylesheet" href="./css/styling.css" />
-    <link rel="stylesheet" href="./css/faq.css" />
-    <script
-      src="https://kit.fontawesome.com/bfa4816429.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="./js/functions.js"></script>
-    <script src="./js/map.js"></script>
-    <script src="./js/data.js"></script>
-    <script src="./js/crimeTimeline.js"></script>
-    <script src="./js/faq.js"></script>
-  </head>
 
-  <body>
-    <div id="main-content">
-      <div id="top-bar">
-        <div id="title">
-          <div>
-            <i
-              class="fa-solid fa-chart-simple fa-xs"
-              style="color: #825555"
-            ></i>
-            <svg
-              width="190.737"
-              height="37.948"
-              viewBox="0 0 190.737 37.948"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g
-                id="svgGroup"
-                stroke-linecap="round"
-                fill-rule="evenodd"
-                font-size="9pt"
-                stroke="#000000"
-                stroke-width="0"
-                fill="#6495ed"
-                style="stroke: #000000; stroke-width: 0; fill: #6495ed"
-              >
-                <path
-                  d="M 135.216 36.361 L 136.404 33.553 Q 137.268 34.237 138.42 34.687 Q 139.572 35.137 141.228 35.137 Q 143.784 35.137 145.242 33.787 Q 146.7 32.437 146.7 29.485 L 146.7 27.181 Q 145.98 28.045 144.63 28.819 Q 143.28 29.593 141.408 29.593 Q 139.284 29.593 137.376 28.495 Q 135.468 27.397 134.28 25.273 Q 133.092 23.149 133.092 20.161 Q 133.092 17.353 134.262 15.157 Q 135.432 12.961 137.412 11.701 Q 139.392 10.441 141.768 10.441 Q 143.352 10.441 144.648 10.981 Q 145.944 11.521 146.88 12.313 L 146.88 10.873 L 149.832 10.873 L 149.832 29.161 Q 149.832 32.257 148.752 34.201 Q 147.672 36.145 145.746 37.045 Q 143.82 37.945 141.228 37.945 Q 139.572 37.945 138.006 37.549 Q 136.44 37.153 135.216 36.361 Z M 178.236 29.593 L 174.996 29.593 L 174.996 10.873 L 178.128 10.873 L 178.128 14.005 Q 179.136 12.493 180.702 11.467 Q 182.268 10.441 184.428 10.441 Q 187.596 10.441 189.162 12.349 Q 190.728 14.257 190.728 17.389 L 190.728 29.593 L 187.488 29.593 L 187.488 17.749 Q 187.488 15.733 186.534 14.509 Q 185.58 13.285 183.888 13.285 Q 182.232 13.285 180.756 14.455 Q 179.28 15.625 178.236 17.209 L 178.236 29.593 Z M 75.564 28.081 L 76.932 25.381 Q 77.868 26.173 79.29 26.695 Q 80.712 27.217 82.332 27.217 Q 84.348 27.217 85.374 26.551 Q 86.4 25.885 86.4 24.841 Q 86.4 24.085 86.022 23.509 Q 85.644 22.933 84.636 22.375 Q 83.628 21.817 81.72 21.169 Q 79.092 20.269 77.778 19.027 Q 76.464 17.785 76.464 15.589 A 4.507 4.507 0 0 1 78.354 11.935 Q 80.244 10.441 83.592 10.441 Q 85.392 10.441 86.796 10.819 Q 88.2 11.197 89.316 11.773 L 88.416 14.437 Q 87.444 13.861 86.202 13.501 Q 84.96 13.141 83.448 13.141 Q 81.576 13.141 80.604 13.897 Q 79.632 14.653 79.632 15.553 Q 79.632 16.417 80.388 17.029 Q 81.144 17.641 83.34 18.361 Q 86.904 19.549 88.308 20.989 Q 89.712 22.429 89.712 24.589 Q 89.712 27.109 87.678 28.567 Q 85.644 30.025 82.224 30.025 Q 80.1 30.025 78.39 29.485 Q 76.68 28.945 75.564 28.081 Z M 67.5 12.745 L 67.5 2.953 L 70.74 2.953 L 70.74 25.057 Q 70.74 26.425 71.406 26.839 Q 72.072 27.253 72.864 27.253 L 72.18 29.773 Q 68.76 29.773 68.004 27.037 Q 67.212 28.153 65.79 29.089 Q 64.368 30.025 62.208 30.025 Q 59.904 30.025 57.996 28.837 Q 56.088 27.649 54.972 25.471 Q 53.856 23.293 53.856 20.341 Q 53.856 17.497 54.99 15.265 Q 56.124 13.033 58.014 11.737 Q 59.904 10.441 62.172 10.441 Q 64.044 10.441 65.394 11.197 Q 66.744 11.953 67.5 12.745 Z M 170.568 21.565 L 157.464 21.565 Q 157.788 24.193 159.3 25.669 Q 160.812 27.145 163.296 27.145 Q 164.916 27.145 166.212 26.803 Q 167.508 26.461 168.696 25.921 L 169.452 28.693 Q 168.156 29.269 166.536 29.647 Q 164.916 30.025 162.9 30.025 Q 158.868 30.025 156.51 27.451 Q 154.152 24.877 154.152 20.233 Q 154.152 17.425 155.214 15.211 Q 156.276 12.997 158.184 11.719 Q 160.092 10.441 162.612 10.441 Q 165.312 10.441 167.094 11.611 Q 168.876 12.781 169.776 14.761 Q 170.676 16.741 170.676 19.117 Q 170.676 20.377 170.568 21.565 Z M 10.908 29.593 L 7.524 29.593 L 0 11.737 L 2.952 10.513 L 9.324 25.921 L 15.696 10.513 L 18.468 11.737 L 10.908 29.593 Z M 102.42 29.593 L 99.036 29.593 L 91.512 11.737 L 94.464 10.513 L 100.836 25.921 L 107.208 10.513 L 109.98 11.737 L 102.42 29.593 Z M 33.804 12.385 L 33.804 10.873 L 36.756 10.873 L 36.756 25.057 Q 36.756 26.425 37.422 26.839 Q 38.088 27.253 38.88 27.253 L 38.196 29.773 Q 34.74 29.773 34.02 26.965 Q 33.192 28.117 31.77 29.071 Q 30.348 30.025 28.152 30.025 Q 25.812 30.025 23.904 28.837 Q 21.996 27.649 20.862 25.471 Q 19.728 23.293 19.728 20.341 Q 19.728 17.533 20.862 15.301 Q 21.996 13.069 23.994 11.755 Q 25.992 10.441 28.584 10.441 Q 30.204 10.441 31.518 10.999 Q 32.832 11.557 33.804 12.385 Z M 125.316 12.385 L 125.316 10.873 L 128.268 10.873 L 128.268 25.057 Q 128.268 26.425 128.934 26.839 Q 129.6 27.253 130.392 27.253 L 129.708 29.773 Q 126.252 29.773 125.532 26.965 Q 124.704 28.117 123.282 29.071 Q 121.86 30.025 119.664 30.025 Q 117.324 30.025 115.416 28.837 Q 113.508 27.649 112.374 25.471 Q 111.24 23.293 111.24 20.341 Q 111.24 17.533 112.374 15.301 Q 113.508 13.069 115.506 11.755 Q 117.504 10.441 120.096 10.441 Q 121.716 10.441 123.03 10.999 Q 124.344 11.557 125.316 12.385 Z M 43.02 23.725 L 43.02 2.953 L 46.26 2.953 L 46.26 23.401 Q 46.26 25.345 47.07 26.281 Q 47.88 27.217 49.32 27.217 Q 50.004 27.217 50.67 27.055 Q 51.336 26.893 51.804 26.677 L 52.596 29.305 Q 51.948 29.593 50.994 29.809 Q 50.04 30.025 48.888 30.025 Q 47.232 30.025 45.9 29.395 Q 44.568 28.765 43.794 27.361 Q 43.02 25.957 43.02 23.725 Z M 33.516 24.805 L 33.516 14.761 Q 32.544 14.077 31.374 13.663 A 7.338 7.338 0 0 0 28.908 13.249 Q 27.18 13.249 25.866 14.131 Q 24.552 15.013 23.796 16.579 Q 23.04 18.145 23.04 20.233 Q 23.04 22.249 23.796 23.815 Q 24.552 25.381 25.884 26.263 Q 27.216 27.145 28.872 27.145 Q 30.24 27.145 31.464 26.479 Q 32.688 25.813 33.516 24.805 Z M 125.028 24.805 L 125.028 14.761 Q 124.056 14.077 122.886 13.663 A 7.338 7.338 0 0 0 120.42 13.249 Q 118.692 13.249 117.378 14.131 Q 116.064 15.013 115.308 16.579 Q 114.552 18.145 114.552 20.233 Q 114.552 22.249 115.308 23.815 Q 116.064 25.381 117.396 26.263 Q 118.728 27.145 120.384 27.145 Q 121.752 27.145 122.976 26.479 Q 124.2 25.813 125.028 24.805 Z M 67.5 24.877 L 67.5 15.589 Q 66.816 14.725 65.592 13.987 Q 64.368 13.249 62.892 13.249 Q 61.164 13.249 59.868 14.185 Q 58.572 15.121 57.87 16.687 Q 57.168 18.253 57.168 20.233 Q 57.168 22.213 57.924 23.779 Q 58.68 25.345 59.994 26.245 Q 61.308 27.145 62.928 27.145 Q 64.26 27.145 65.466 26.515 Q 66.672 25.885 67.5 24.877 Z M 146.592 24.553 L 146.592 14.761 Q 145.8 14.185 144.684 13.717 Q 143.568 13.249 142.092 13.249 Q 140.616 13.249 139.32 14.041 Q 138.024 14.833 137.214 16.327 Q 136.404 17.821 136.404 19.981 Q 136.404 22.033 137.214 23.545 Q 138.024 25.057 139.32 25.885 Q 140.616 26.713 142.128 26.713 Q 143.568 26.713 144.72 26.065 Q 145.872 25.417 146.592 24.553 Z M 29.232 8.641 Q 27.36 8.641 26.046 7.417 Q 24.732 6.193 24.732 4.321 Q 24.732 2.413 26.046 1.207 Q 27.36 0.001 29.232 0.001 Q 30.456 0.001 31.482 0.559 Q 32.508 1.117 33.12 2.089 Q 33.732 3.061 33.732 4.321 Q 33.732 5.581 33.12 6.553 Q 32.508 7.525 31.482 8.083 Q 30.456 8.641 29.232 8.641 Z M 120.744 8.641 Q 118.872 8.641 117.558 7.417 Q 116.244 6.193 116.244 4.321 Q 116.244 2.413 117.558 1.207 Q 118.872 0.001 120.744 0.001 Q 121.968 0.001 122.994 0.559 Q 124.02 1.117 124.632 2.089 Q 125.244 3.061 125.244 4.321 Q 125.244 5.581 124.632 6.553 Q 124.02 7.525 122.994 8.083 Q 121.968 8.641 120.744 8.641 Z M 157.428 18.937 L 167.688 18.937 Q 167.688 16.201 166.32 14.725 Q 164.952 13.249 162.54 13.249 Q 160.452 13.249 159.084 14.707 Q 157.716 16.165 157.428 18.937 Z M 29.232 6.409 Q 29.988 6.409 30.474 5.851 Q 30.96 5.293 30.96 4.321 Q 30.96 3.493 30.51 2.863 Q 30.06 2.233 29.232 2.233 Q 28.44 2.233 27.972 2.755 Q 27.504 3.277 27.504 4.321 Q 27.504 5.185 27.972 5.797 Q 28.44 6.409 29.232 6.409 Z M 120.744 6.409 Q 121.5 6.409 121.986 5.851 Q 122.472 5.293 122.472 4.321 Q 122.472 3.493 122.022 2.863 Q 121.572 2.233 120.744 2.233 Q 119.952 2.233 119.484 2.755 Q 119.016 3.277 119.016 4.321 Q 119.016 5.185 119.484 5.797 Q 119.952 6.409 120.744 6.409 Z"
-                />
-              </g>
-            </svg>
-            <i
-              class="fa-solid fa-circle-question fa-2xs"
-              style="color: #8a97ff"
-            ></i>
+<head>
+  <meta charset="utf-8" />
+  <title>Våldsvågen</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css" />
+  <link rel="stylesheet" href="./css/styling.css" />
+  <link rel="stylesheet" href="./css/faq.css" />
+  <script src="https://kit.fontawesome.com/bfa4816429.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="./js/functions.js"></script>
+  <script src="./js/map.js"></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/crimeTimeline.js"></script>
+</head>
+
+<body>
+  <div id="side-bar-menu">
+    <div class="sidebar-item">
+      <a href="#" style="margin-top: 20px; margin-bottom: 40px; font-size: 24px;"><i
+          class="fa-solid fa-chart-simple"></i> Våldsvågen</a>
+    </div>
+    <div class="sidebar-item">
+      <a href="./map.html"><i class="fa-solid fa-map"></i> Karta</a>
+    </div>
+    <div class="sidebar-item">
+      <a href="#"><i class="fa-solid fa-chart-line"></i> Statistik</a>
+    </div>
+    <div class="sidebar-item sidebar-item-bottom-about">
+      <a href=" #"><i class="fa-solid fa-user"></i> Info</a>
+    </div>
+    <div class="sidebar-item sidebar-item-bottom-questions">
+      <a href="./questions.html"><i class="fa-solid fa-question"></i> Frågor</a>
+    </div>
+  </div>
+  <div id="main-content">
+    <div id="map-and-table-container">
+      <div id="map">
+        <div id="preview-container">
+          <div class="preview-tile active" data-index="0">
+            <img alt="Light" />
+          </div>
+          <div class="preview-tile" data-index="1">
+            <img alt="Light" />
+          </div>
+          <div class="preview-tile" data-index="2">
+            <img alt="Dark" />
           </div>
         </div>
       </div>
-      <div id="map-and-table-container">
-        <div id="map">
-          <div id="preview-container">
-            <div class="preview-tile active" data-index="0">
-              <img alt="Light" />
-            </div>
-            <div class="preview-tile" data-index="1">
-              <img alt="Light" />
-            </div>
-            <div class="preview-tile" data-index="2">
-              <img alt="Dark" />
-            </div>
-          </div>
-        </div>
-        <div id="crime-table">
-          <table id="crime-data-table">
-            <thead>
-              <tr>
-                <th>Titel</th>
-                <th>Beskrivning</th>
-                <th>Tid</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </div>
-      <div id="percentage-and-scale-bar">
-        <div id="crime-percentage">
-          <div class="percentage-and-scale-bar-title">Brott detta år</div>
-          <div class="percentage-and-scale-bar-value countup"></div>
-          <div class="percentage-and-scale-bar-difference"></div>
-        </div>
-        <div class="seperator"></div>
-        <div id="most-impacted-city">
-          <div class="percentage-and-scale-bar-title">Mest påverkade plats</div>
-          <div class="percentage-and-scale-bar-value"></div>
-          <div class="percentage-and-scale-bar-difference"></div>
-        </div>
-        <div class="seperator"></div>
-        <div id="most-common-crime">
-          <div class="percentage-and-scale-bar-title">Vanligaste brottet</div>
-          <div class="percentage-and-scale-bar-value"></div>
-          <div class="percentage-and-scale-bar-difference"></div>
-        </div>
-      </div>
-      <div id="crime-scatter-plot-and-timeline-tables">
-        <div id="crime-table-occourance">
-          <table id="crime-data-table-details">
-            <thead>
-              <tr>
-                <th>Brott</th>
-                <th>Antal</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-        <div id="crime-scatter-plot">
-          <div></div>
-        </div>
-        <div id="crime-timeline-table"></div>
+      <div id="crime-table">
+        <table id="crime-data-table">
+          <thead>
+            <tr>
+              <th>Titel</th>
+              <th>Beskrivning</th>
+              <th>Tid</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
       </div>
     </div>
-    <div id="faq-window" class="invinsible">
-      <div id="close-faq-window">
-        <i class="fa-solid fa-circle-xmark fa-xl" id="close-faq-window-btn"></i>
+    <div id="percentage-and-scale-bar">
+      <div id="crime-percentage">
+        <div class="percentage-and-scale-bar-title">Brott detta år</div>
+        <div class="percentage-and-scale-bar-value countup"></div>
+        <div class="percentage-and-scale-bar-difference"></div>
+      </div>
+      <div class="seperator"></div>
+      <div id="most-impacted-city">
+        <div class="percentage-and-scale-bar-title">Mest påverkade plats</div>
+        <div class="percentage-and-scale-bar-value"></div>
+        <div class="percentage-and-scale-bar-difference"></div>
+      </div>
+      <div class="seperator"></div>
+      <div id="most-common-crime">
+        <div class="percentage-and-scale-bar-title">Vanligaste brottet</div>
+        <div class="percentage-and-scale-bar-value"></div>
+        <div class="percentage-and-scale-bar-difference"></div>
       </div>
     </div>
-  </body>
+    <div id="crime-scatter-plot-and-timeline-tables">
+      <div id="crime-table-occourance">
+        <table id="crime-data-table-details">
+          <thead>
+            <tr>
+              <th>Brott</th>
+              <th>Antal</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div id="crime-scatter-plot">
+        <div></div>
+      </div>
+      <div id="crime-timeline-table"></div>
+    </div>
+  </div>
+</body>
+
 </html>

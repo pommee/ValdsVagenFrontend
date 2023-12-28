@@ -4,7 +4,7 @@ function filterCrimeDataByYear(data, selectedYear) {
   }
 
   return data.filter((incident) => {
-    const year = new Date(incident.timeIncident).getFullYear();
+    const year = new Date(incident.timePublished).getFullYear();
     return year.toString() === selectedYear;
   });
 }
@@ -18,7 +18,7 @@ function generateCrimeTimeline(data, selectedYear) {
   const crimeCounts = new Array(24).fill(0);
 
   data.forEach((incident) => {
-    const time = new Date(incident.timeIncident);
+    const time = new Date(incident.timePublished);
     const hour = time.getHours();
     crimeCounts[hour]++;
   });

@@ -1,19 +1,7 @@
 let faqWindow;
 
 function questionsAndAnswers() {
-  let questionMark = document.querySelector(".fa-circle-question");
   faqWindow = document.querySelector("#faq-window");
-  closeFaqWindowsBtn = document.querySelector("#close-faq-window-btn");
-
-  questionMark.addEventListener("click", function () {
-    faqWindow.classList = "visible";
-    document.querySelector("#main-content").style = "filter: blur(2px);";
-  });
-
-  closeFaqWindowsBtn.addEventListener("click", function () {
-    faqWindow.classList = "invinsible";
-    document.querySelector("#main-content").style = "filter: blur(0px);";
-  });
 
   fetch("faq.json")
     .then((response) => response.json())

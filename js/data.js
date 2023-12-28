@@ -1,7 +1,7 @@
 async function fetchCrimes() {
   try {
     const response = await fetch(
-      "https://valdsvagen-production.up.railway.app/api",
+      "http://192.168.50.66:8080/api",
       {
         headers: {
           Accept: "application/json",

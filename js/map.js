@@ -129,7 +129,7 @@ function updateCrimeTable() {
     row.innerHTML = `
           <td>${crime.label}</td>
           <td>${crime.description}</td>
-          <td>${crime.timeIncident}</td>
+          <td>${crime.timePublished}</td>
         `;
 
     row.addEventListener("click", function () {
@@ -162,8 +162,7 @@ function updateCrimeTableAmount() {
   const currentYear = new Date().getFullYear();
   const tableBody = document.querySelector("#crime-data-table-details tbody");
   tableBody.innerHTML = "";
-  let amountOfCrimeTypePerYear =
-    countIncidentTypePerYear(crimeData)[currentYear];
+  let amountOfCrimeTypePerYear = countIncidentTypePerYear(crimeData)[currentYear];
 
   const dataArray = Object.entries(amountOfCrimeTypePerYear);
 
@@ -189,11 +188,10 @@ function graph() {
   filteredData = crimeData;
 
   filteredData.sort(
-    (a, b) => new Date(b.timeIncident) - new Date(a.timeIncident)
+    (a, b) => new Date(b.timePublished) - new Date(a.timePublished)
   );
 
-  const xData = filteredData.map((item) => new Date(item.timeIncident));
-  const yData = filteredData.map((item) => item.label);
+  const xData = filteredData.map((item) => new Date(item.timePublished));
 
   const monthlyCrimeCounts = {};
   xData.reverse().forEach((date) => {
@@ -292,22 +290,25 @@ function updatePercentageAndScaleBar() {
   let incidentTypesPerYear = countIncidentTypePerYear(crimeData);
 
   const currentYearLabels = incidentTypesPerYear[currentYear];
-  const previousYearLabels = incidentTypesPerYear[currentYear - 1];
-  let mostCommonCurrentYearLabel = null;
-  let mostCommonCurrentYearCount = 0;
-  let mostCommonPreviousYearCount = 0;
 
-  for (const label in currentYearLabels) {
-    if (currentYearLabels[label] > mostCommonCurrentYearCount) {
-      mostCommonCurrentYearLabel = label;
-      mostCommonPreviousYearCount = previousYearLabels[label];
-      mostCommonCurrentYearCount = currentYearLabels[label];
+  if (incidentTypesPerYear[currentYear - 1] != undefined) {
+    const previousYearLabels = incidentTypesPerYear[currentYear - 1];
+    let mostCommonCurrentYearLabel = null;
+    let mostCommonCurrentYearCount = 0;
+    let mostCommonPreviousYearCount = 0;
+
+    for (const label in currentYearLabels) {
+      if (currentYearLabels[label] > mostCommonCurrentYearCount) {
+        mostCommonCurrentYearLabel = label;
+        mostCommonPreviousYearCount = previousYearLabels[label];
+        mostCommonCurrentYearCount = currentYearLabels[label];
+      }
     }
-  }
 
-  mostCommonCrime.textContent = mostCommonCurrentYearLabel;
-  mostCommonCrimeCompared.textContent =
-    mostCommonCurrentYearCount + " fall " + currentYear;
+    mostCommonCrime.textContent = mostCommonCurrentYearLabel;
+    mostCommonCrimeCompared.textContent =
+      mostCommonCurrentYearCount + " fall " + currentYear;
+  }
 }
 
 function getUniqueLabels(objects) {
@@ -335,7 +336,7 @@ function countIncidentsPerYear(incidents) {
   const incidentsByYear = {};
 
   incidents.forEach((incident) => {
-    const year = incident.timeIncident.split("-")[0];
+    const year = incident.timePublished.split("-")[0];
 
     if (incidentsByYear[year]) {
       incidentsByYear[year]++;
@@ -351,7 +352,7 @@ function countIncidentTypePerYear(incidents) {
   const countsByYear = {};
 
   incidents.forEach((item) => {
-    const year = new Date(item.timeIncident).getFullYear();
+    const year = new Date(item.timePublished).getFullYear();
 
     if (!countsByYear[year]) {
       countsByYear[year] = {};

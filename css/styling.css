@@ -4,51 +4,99 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#top-bar {
-  position: relative;
-  left: 2.5%;
-  width: 94vw;
-  border-radius: 0 0 10px 10px;
-  height: 8vh;
-  background-color: white;
-  filter: drop-shadow(0px 6px 6px #aaaaaa);
-  margin-bottom: 40px;
+:root {
+  --first: #6c757d;
+  --second: #495057;
+  --third: #343a40;
+  --fourth: #212529;
 }
 
-#title {
+body {
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  display: flex;
+  background-color: var(--fourth);
+}
+
+i {
+  filter: drop-shadow(0px 3px 3px #111111);
+}
+
+#side-bar-menu {
+  position: fixed;
+  filter: drop-shadow(0px 6px 6px #111111);
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 220px;
+  background-color: var(--third);
+}
+
+.sidebar-item {
+  font-size: 20px;
   margin-left: 20px;
-  font-size: 46px;
+  padding: 10px;
+}
+
+.sidebar-item a {
+  display: block;
+  color: #d8d8d8;
+  text-decoration: none;
+}
+
+.sidebar-item a:hover {
+  background-color: var(--second);
+}
+
+.sidebar-item-active a {
+  color: cornflowerblue;
+}
+
+.sidebar-item-bottom-about a {
   position: absolute;
-  top: 20%;
+  margin-bottom: 20px;
+  bottom: 0;
+  font-size: 24px;
+  color: orange;
 }
 
-.fa-circle-question {
-  cursor: pointer;
-  margin-left: 20px;
+.sidebar-item-bottom-questions a {
+  position: absolute;
+  margin-bottom: 80px;
+  bottom: 0;
+  font-size: 24px;
+  color: orange;
 }
 
 #map-and-table-container {
+  justify-content: space-evenly;
+  height: 95vh;
   margin-bottom: 40px;
-  filter: drop-shadow(0px 6px 6px #aaaaaa);
+  filter: drop-shadow(0px 6px 6px #111111);
   position: relative;
-  left: 2.5%;
-  width: 94vw;
+  left: 3.5%;
+  width: 95%;
   justify-content: center;
   display: flex;
+}
+
+#main-content {
+  margin-left: 180px;
+  flex: 1;
+  padding: 20px;
 }
 
 #map {
   border-radius: 20px 0 0 20px;
   position: relative;
-  width: 46vw;
-  height: 70vh;
+  width: 50%;
 }
 
 #crime-table {
   border-radius: 0 20px 20px 0;
-  background-color: white;
-  width: 46vw;
-  height: 70vh;
+  background-color: var(--third);
+  padding: 0;
+  width: 50%;
   overflow-y: auto;
 }
 
@@ -84,22 +132,24 @@
 }
 
 #crime-data-table th {
-  background-color: white;
-  color: black;
+  font-weight: bolder;
+  background-color: var(--third);
+  color: white;
   padding: 10px;
   text-align: center;
 }
 
 #crime-data-table td {
-  padding: 8px;
+  color: white;
+  padding-left: 8px;
 }
 
 #crime-data-table tbody tr:nth-child(even) {
-  background-color: #fafafa;
+  background-color: var(--second);
 }
 
 #crime-data-table tbody tr:hover {
-  background-color: #ddd;
+  background-color: var(--fourth);
   cursor: pointer;
 }
 
@@ -108,8 +158,9 @@
   border-radius: 15px;
   padding-top: 15px;
   padding-bottom: 15px;
-  filter: drop-shadow(0px 6px 6px #aaaaaa);
-  background-color: white;
+  color: white;
+  filter: drop-shadow(0px 6px 6px #111111);
+  background-color: var(--third);
   position: relative;
   width: 50%;
   justify-content: space-evenly;
@@ -120,22 +171,23 @@
 
 .percentage-and-scale-bar-title {
   font-size: 0.8svi;
-  color: gray;
+  color: white;
 }
 
 .percentage-and-scale-bar-value {
   font-weight: bold;
   font-size: 1.4svi;
-  color: black;
+  color: cornflowerblue;
   animation: count-up 5s linear;
 }
 
 @keyframes count-up {
   from {
-    content: "0"; /* Start with 0 */
+    content: "0";
   }
+
   to {
-    content: "100"; /* Change to your desired final value */
+    content: "100";
   }
 }
 
@@ -150,18 +202,15 @@
 
 #crime-scatter-plot-and-timeline-tables {
   padding-bottom: 20px;
-  overflow-y: scroll;
-  margin-bottom: 40px;
-  background-color: white;
+  background-color: var(--third);
   border-radius: 15px;
   position: relative;
-  filter: drop-shadow(0px 6px 6px #aaaaaa);
+  filter: drop-shadow(0px 6px 6px #111111);
   justify-content: space-evenly;
   display: flex;
-  width: 94vw;
+  width: 90%;
   height: 40vh;
   left: 2.5%;
-  justify-content: center;
   overflow-y: hidden;
 }
 
@@ -174,11 +223,11 @@
 }
 
 #crime-scatter-plot {
-  width: 40vw;
+  width: 40%;
 }
 
 #crime-timeline-table {
-  width: 40vw;
+  width: 40%;
 }
 
 ::-webkit-scrollbar {
@@ -199,24 +248,4 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: #a8bbbf;
-}
-
-#faq-window.invinsible {
-  display: none;
-}
-
-#faq-window.visible {
-  top: 0;
-  margin-left: 5%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  position: absolute;
-  z-index: 999;
-  overflow-y: auto;
-  background-color: white;
-  border-radius: 10px;
-  border: 2px solid cornflowerblue;
-  display: visible;
-  width: 90vw;
-  height: 80vh;
 }
